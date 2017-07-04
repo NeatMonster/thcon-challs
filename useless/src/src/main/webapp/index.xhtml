@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+  	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h:head>
+		<title>Useless Converter</title>
+		<ui:include src="#{textBean.theme}" />
+	</h:head>
+	<h:body>
+		<h1>Useless Converter</h1>
+		<hr/>
+		<b>Normal:</b> #{textBean.getText()}
+		<br/><b>Uppercase:</b> #{textBean.getUppercase()}
+		<br/><b>Lowercase:</b> #{textBean.getLowercase()}
+		<br/><b>Vowels:</b> #{textBean.getVowels()}
+		<br/><b>Consonants:</b> #{textBean.getConsonants()}
+		<br/><b>Reversed:</b> #{textBean.getReversed()}
+		<br/><b>LeetSpeak:</b> #{textBean.getLeetSpeak()}
+		<hr/>
+		<h:form>
+			<h:panelGrid columns="3">
+				<h:outputLabel for="text">Text</h:outputLabel>
+				<h:inputText id="text" value="#{textBean.text}"></h:inputText>
+				<br/><h:outputLabel for="theme">Theme</h:outputLabel>
+				<h:selectOneMenu id="theme" value="#{textBean.theme}">
+					<f:converter converterId="ThemeConverter" />
+					<f:selectItem itemValue="light.xhtml" itemLabel="Light" />
+					<f:selectItem itemValue="dark.xhtml" itemLabel="Dark" />
+				</h:selectOneMenu>
+				<br/><h:commandButton value="Convert" action="index"></h:commandButton>
+			</h:panelGrid>
+		</h:form>
+	</h:body>
+</html>

